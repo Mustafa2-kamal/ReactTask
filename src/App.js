@@ -8,7 +8,7 @@ import DropMenu from './Components/DropMenu';
 import SearchAndDrop from './Components/SearchAndDrop';
 
 import Countries from './Components/Countries';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,Switch } from 'react-router-dom';
 import Home from './Components/Home';
 import Detail from './Components/Detail';
 
@@ -18,12 +18,12 @@ function App() {
   return (
     <div className="App">
 
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/home' element={<Home/>}></Route>
-        <Route path='/detail' element={<Detail/>}></Route>
-        <Route path='*' element={<h2>Not Found</h2>}></Route>
-      </Routes>
+      <Switch>
+        <Route exact path='/'><Home /></Route>
+        <Route path='/home' ><Home /></Route>
+        <Route path='/detail'><Detail/></Route>
+        <Route path='*'><h1>Not Found</h1></Route>
+      </Switch>
       
 
       {/* <img src={logo} className="App-logo" alt="logo" />
