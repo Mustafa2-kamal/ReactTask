@@ -20,8 +20,8 @@ function App() {
 
       <Routes basename="/ReactTask">
         <Route path='/' element={<Home/>}></Route>
-        <Route path='home' element={<Home/>}></Route>
-        <Route path='detail' element={<Detail/>}></Route>
+        <Route path='/home' element={<Home/>}></Route>
+        <Route path='/detail' element={<Detail/>}></Route>
         <Route path='*' element={<h2>Not Found</h2>}></Route>
       </Routes>
       
