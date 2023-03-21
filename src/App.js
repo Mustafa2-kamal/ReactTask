@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
 
-      <Routes basename="/ReactTask">
+      <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='home' element={<Home/>}></Route>
         <Route path='detail' element={<Detail/>}></Route>
