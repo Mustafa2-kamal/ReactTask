@@ -18,11 +18,12 @@ function App() {
   return (
     <div className="App">
 
-        <Route exact path='/'><Home /></Route>
-        <Route path='/home' ><Home /></Route>
-        <Route path='/detail'><Detail/></Route>
-        <Route path='*'><h1>Not Found</h1></Route>
-     
+      <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/home' element={<Home/>}></Route>
+        <Route path='/detail' element={<Detail/>}></Route>
+        <Route path='*' element={<h1>Not Found</h1>}></Route>
+      </Routes>
       
 
       {/* <img src={logo} className="App-logo" alt="logo" />
