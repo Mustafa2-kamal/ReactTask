@@ -11,6 +11,7 @@ function Home() {
         <div>
             <Header />
             <Link to="/detail">Detail</Link>
+            <Link to="/del">De</Link>
             <SearchAndDrop />
             <Countries />
         </div>

@@ -2,7 +2,7 @@
   "name": "app2",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://Mustafa2-kamal.github.io/ReactTask/#",
+  "homepage":"https://Mustafa2-kamal.github.io/ReactTask",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
