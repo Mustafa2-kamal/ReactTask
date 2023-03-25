@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Header from './Components/Header';
 import Search from './Components/Search';
 import DropMenu from './Components/DropMenu';
-import SearchAndDrop from './Components/SearchAndDrop';
+import SearchAndDrop from './Components/SearchAndFilter';
 
 import Countries from './Components/Countries';
 import { Route, Routes,Switch } from 'react-router-dom';

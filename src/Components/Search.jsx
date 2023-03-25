@@ -9,8 +9,15 @@ const SearchInput = styled.input`
   background-color:white;
   padding:16px 10px 16px 15px;
   border:none;
-  position: 'relative';
   width:100%;
+  border-radius:5px;
+  font-family: 'Nunito Sans', sans-serif;
+  
+`;
+
+const SearchIconStyles = styled(SearchIcon)`
+
+  color: #858585
   
 `;
 
@@ -18,23 +25,21 @@ const SearchInput = styled.input`
 const Content = styled.div`
 background-color:white;
 padding-left:20px;
-width:500px;
 display: flex;
 align-items: center;
 box-shadow: 0px 0px 4px 0px #85858544;
+border-radius:5px;
 
 `;
 
 function Search() {
     return (
-        <div>
-            {/* <TextField id="outlined-search" placeholder="Search for a country..." type="search" /> */}
-            {/* <SearchIcon sx={{backgroundColor:'red',padding:'10px'}} /> */}
-            <Content>
-                <SearchIcon />
-                <SearchInput id="outlined-search" placeholder="Search for a country..." type="search" />
-            </Content>
-        </div>
+
+        <Content>
+            <SearchIconStyles />
+            <SearchInput id="outlined-search" placeholder="Search for a country..." type="search" />
+        </Content>
+
     )
 }
 

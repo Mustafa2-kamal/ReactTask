@@ -1,20 +1,24 @@
-import { Link } from "react-router-dom";
+
 import Countries from "./Countries";
 import Header from "./Header";
-import SearchAndDrop from "./SearchAndDrop";
+import SearchAndFilter from "./SearchAndFilter";
+import styled from "styled-components";
 
+const Content = styled.div`
 
+background-color: #fafafa;
+padding-bottom: 50px;
+
+`;
 
 
 function Home() {
     return (
-        <div>
+        <Content>
             <Header />
-            <Link to="/detail">Detail</Link>
-            <Link to="/del">De</Link>
-            <SearchAndDrop />
+            <SearchAndFilter />
             <Countries />
-        </div>
+        </Content>
     )
 }
 

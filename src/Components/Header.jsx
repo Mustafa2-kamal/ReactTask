@@ -1,27 +1,42 @@
 
-import { AppBar, Link, Container, Toolbar, IconButton, Grid } from '@mui/material';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import { Box } from '@mui/system';
 import styled from 'styled-components';
 
-const ButtonStyled = styled.button`
+import ContainerStyles from './ContainerStyles';
+
+const ButtonStyles = styled.button`
 border:none;
 font-size:20px;
+font-family: 'Nunito Sans', sans-serif;
+background-color:#fff;
+font-weight: 800;
+
+
+:hover {
+    cursor:pointer
+  }
+`;
+
+const DarkButton = styled.button`
+border:none;
+font-size:17px;
+font-family: 'Nunito Sans', sans-serif;
 background-color:#fff;
 font-weight: 600;
+
 :hover {
     cursor:pointer
   }
 `;
 
 
+
 const Content = styled.div`
 
 display:flex;
 justify-Content:space-between;
-align-items:start;
+align-items:center;
 
 `;
 
@@ -32,52 +47,28 @@ padding:20px 0px;
 
 `;
 
-const ToolbarStyled = styled(Toolbar)`
-background-color:#fff;
-box-shadow: 0px 0px 4px 0px #85858544;
-
-`;
-
-
-
 
 function Header() {
     return (
 
-       <Head>
-            <Container maxWidth="xl">
-
-                {/* <Grid container justifyContent="flex-start" alignItems={'center'}>
-                        <Grid item xs={6}>
-
-                            // {/* <Button variant="contained" >
-                            //     Where in the world?
-                            // </Button> 
-                            <ButtonStyled >
-                                Where in the world?
-                            </ButtonStyled>
-
-                        </Grid>
-
-                        <Grid item xs={6}>
-                            <ButtonStyled>
-                                <DarkModeOutlinedIcon /> Dark Mode
-                            </ButtonStyled>
-                        </Grid>
-                    </Grid> */}
+        <Head>
+            <ContainerStyles maxWidth={false} >
                 <Content>
-                    <ButtonStyled >
+                    <ButtonStyles >
                         Where in the world?
-                    </ButtonStyled>
+                    </ButtonStyles>
 
-                    <ButtonStyled>
-                        <DarkModeOutlinedIcon /> Dark Mode
-                    </ButtonStyled>
+                    <DarkButton>
+                        <Content>
+                            <DarkModeOutlinedIcon /> <span>&nbsp; Dark Mode</span>
+                        </Content>
+                    </DarkButton>
+
                 </Content>
 
 
-            </Container>
-            </Head>
+            </ContainerStyles>
+        </Head>
 
     )
 }

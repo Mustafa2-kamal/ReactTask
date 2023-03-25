@@ -1,13 +1,11 @@
 import { Grid, Container } from "@mui/material";
-import CountryCard from "./CountryCard";
 import Favourite from "./Favourite";
 import styled from "styled-components";
+import ContainerStyles from "./ContainerStyles";
+import Cards from "./Cards";
 
 const Content = styled.div`
 
-// display:flex;
-// justify-Content:space-between;
-// align-items:start;
 margin-top:40px
 
 `;
@@ -16,23 +14,19 @@ margin-top:40px
 function Countries() {
     return (
         <div>
-            <Container maxWidth="xl">
+            <ContainerStyles maxWidth={false}>
                 <Content>
                     <Grid container>
-                        <Grid item xs={2}>
+                        <Grid item xs={6} lg>
                             <Favourite />
                         </Grid>
-                        <Grid item xs={1}>
 
-                        </Grid>
-                        <Grid item xs={9}>
-                            <CountryCard />
+                        <Grid item xs={12} lg={9}>
+                            <Cards />
                         </Grid>
                     </Grid>
-                    {/* <Favourite />
-                    <CountryCard /> */}
                 </Content>
-            </Container>
+            </ContainerStyles>
         </div>
     )
 }
