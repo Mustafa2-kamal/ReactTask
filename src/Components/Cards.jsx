@@ -41,7 +41,7 @@ function Cards() {
                             <CardMedia
                                 sx={{ height: 150 }}
                                 component="img"
-                                image="https://www.w3schools.com/html/pic_trulli.jpg"
+                                image="images/de.svg"
                                 alt="CardMedia Image Example"
                             />
                             <CardContent >

@@ -59,7 +59,7 @@ function Favourite() {
                 </ListItem>
 
                 <ListItem>
-                    <img src='https://www.w3schools.com/html/pic_trulli.jpg' width={30} height={20} />
+                    <img src='images/us.svg' width={30} height={20} />
 
                     <ListItemText>
                         <CountryName>United States of America</CountryName>
@@ -73,7 +73,7 @@ function Favourite() {
                 </ListItem>
 
                 <ListItem>
-                    <img src='https://www.w3schools.com/html/pic_trulli.jpg' width={30} height={20} />
+                    <img src='images/de.svg' width={30} height={20} />
 
                     <ListItemText>
                         <CountryName>Germany</CountryName>

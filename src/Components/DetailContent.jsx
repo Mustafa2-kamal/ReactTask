@@ -72,7 +72,7 @@ function DetailContent() {
                             <CardMedia
                                 component="img"
                                 height="400"
-                                image="https://www.w3schools.com/html/pic_trulli.jpg"
+                                image="images/be.svg"
                                 alt="Belgium"
                             />
 
