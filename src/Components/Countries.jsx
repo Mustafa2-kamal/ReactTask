@@ -16,7 +16,7 @@ function Countries() {
         <div>
             <ContainerStyles maxWidth={false}>
                 <Content>
-                    <Grid container>
+                    <Grid container >
                         <Grid item xs={6} lg>
                             <Favourite />
                         </Grid>

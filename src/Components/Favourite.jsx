@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemAvatar, IconButton, ListItemText, Button } from '@mui/material';
+import { List, ListItem, ListItemAvatar, IconButton, ListItemText, Button, CardMedia, Card } from '@mui/material';
 
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -37,15 +37,21 @@ font-family: 'Nunito Sans', sans-serif;
 margin-left:5px;
 `;
 
+
 function Favourite() {
     return (
         <Content>
             <Title>Favourites</Title>
             <List sx={{ height: '600px' }}>
                 <ListItem>
-
-                    <img src='https://www.w3schools.com/html/pic_trulli.jpg' width={30} height={20} />
-
+                    <Card>
+                        <CardMedia
+                            sx={{ height: 20, width: 30 }}
+                            component="img"
+                            image="images/us.svg"
+                            alt="CardMedia Image Example"
+                        />
+                    </Card>
 
                     <ListItemText>
                         <CountryName>Jordan</CountryName>
@@ -59,7 +65,14 @@ function Favourite() {
                 </ListItem>
 
                 <ListItem>
-                    <img src='images/us.svg' width={30} height={20} />
+                    <Card>
+                        <CardMedia
+                            sx={{ height: 20, width: 30 }}
+                            component="img"
+                            image="images/us.svg"
+                            alt="CardMedia Image Example"
+                        />
+                    </Card>
 
                     <ListItemText>
                         <CountryName>United States of America</CountryName>
@@ -73,7 +86,15 @@ function Favourite() {
                 </ListItem>
 
                 <ListItem>
-                    <img src='images/de.svg' width={30} height={20} />
+                    <Card>
+                        <CardMedia
+                            sx={{ height: 20, width: 30 }}
+                            component="img"
+                            image="images/de.svg"
+                            alt="CardMedia Image Example"
+                        />
+                    </Card>
+
 
                     <ListItemText>
                         <CountryName>Germany</CountryName>
