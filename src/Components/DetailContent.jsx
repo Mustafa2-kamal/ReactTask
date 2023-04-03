@@ -1,7 +1,7 @@
 
-import { Card, CardMedia, Grid } from "@mui/material";
+import { Card, CardMedia, Grid, Container } from "@mui/material";
 import styled from "styled-components";
-import ContainerStyles from "./ContainerStyles";
+
 
 
 const Title = styled.h2`
@@ -60,10 +60,16 @@ margin-top:50px;
 
 `;
 
-function DetailContent() {
+function DetailContent(props) {
+
+    const { imageUrl, imageAlt, title, nativeName, population, region, subRegion, capital, toplevelDomain,
+        currenies, languages } = props.count;
+
+
+
     return (
         <div>
-            <ContainerStyles maxWidth={false}>
+            <Container maxWidth="xl">
 
                 <Grid container >
 
@@ -72,8 +78,8 @@ function DetailContent() {
                             <CardMedia
                                 component="img"
                                 height="400"
-                                image="images/be.svg"
-                                alt="Belgium"
+                                image={imageUrl}
+                                alt={imageAlt}
                             />
 
                         </Image>
@@ -84,52 +90,52 @@ function DetailContent() {
                     <Grid item xs={12} lg>
                         <ContentStyles>
                             <div>
-                                <Title>Belgium</Title>
+                                <Title>{title}</Title>
                                 <Grid container>
 
                                     <Grid item xs={12} md>
                                         <div>
                                             <div>
                                                 <Name>Native Name:</Name>
-                                                <Value>Belgie</Value>
+                                                <Value>{nativeName}</Value>
                                             </div>
                                             <div>
                                                 <Name>Population:</Name>
-                                                <Value>11,319,511</Value>
+                                                <Value>{population}</Value>
                                             </div>
                                             <div>
                                                 <Name>Region:</Name>
-                                                <Value>Europe</Value>
+                                                <Value>{region}</Value>
                                             </div>
                                             <div>
                                                 <Name>Sub Region:</Name>
-                                                <Value>Western Europe</Value>
+                                                <Value>{subRegion}</Value>
                                             </div>
 
                                             <div>
                                                 <Name>Capital:</Name>
-                                                <Value>Brussels</Value>
+                                                <Value>{capital}</Value>
                                             </div>
                                         </div>
                                     </Grid>
                                     <Grid item xs={1}></Grid>
                                     <Grid item xs>
-                                        <RightContent>
+                                        <div>
                                             <div>
                                                 <Name>Top level Domain:</Name>
-                                                <Value>.be</Value>
+                                                <Value>{toplevelDomain}</Value>
                                             </div>
 
                                             <div>
                                                 <Name>Currenies:</Name>
-                                                <Value>Euro</Value>
+                                                <Value>{currenies}</Value>
                                             </div>
 
                                             <div>
                                                 <Name>Languages:</Name>
-                                                <Value>Dutch, French, German</Value>
+                                                <Value>{languages}</Value>
                                             </div>
-                                        </RightContent>
+                                        </div>
                                     </Grid>
 
                                 </Grid>
@@ -147,7 +153,7 @@ function DetailContent() {
 
                 </Grid>
 
-            </ContainerStyles>
+            </Container>
         </div>
     )
 }

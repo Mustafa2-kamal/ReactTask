@@ -2,12 +2,12 @@
 import { Button, Container } from "@mui/material";
 import Header from "./Header";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import ContainerStyles from "./ContainerStyles";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import DetailContent from "./DetailContent";
+
 import BackButton from "./BackButton";
+import DetailContainer from "./DetailContainer"
 
 
 const ButtonStyled = styled.button`
@@ -38,7 +38,8 @@ function Detail() {
         <Content>
             <Header />
             <BackButton />
-            <DetailContent />
+            {/* <DetailContent /> */}
+            <DetailContainer />
         </Content>
     )
 }

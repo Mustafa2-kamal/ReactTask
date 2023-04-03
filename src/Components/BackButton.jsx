@@ -1,10 +1,9 @@
 
 
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
-import ContainerStyles from "./ContainerStyles";
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
+import { Container } from '@mui/material';
 
 const LinkStyles = styled(Link)`
 
@@ -26,14 +25,14 @@ width:fit-content;
 function BackButton() {
     return (
         <div>
-            <ContainerStyles maxWidth={false}>
+            <Container maxWidth="xl">
 
                 <LinkStyles to="/home">
 
                     <KeyboardBackspaceIcon /> <span>&nbsp; Back</span>
 
                 </LinkStyles>
-            </ContainerStyles>
+            </Container>
         </div>
     )
 }

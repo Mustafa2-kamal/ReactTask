@@ -4,25 +4,46 @@ import styled from "styled-components";
 
 const SelectStyled = styled(Select)`
 width:100%;
-background-color:#fff;
+background-color:var(--bg-color);
+color:red;
 border:none;
 font-family: 'Nunito Sans', sans-serif;
 box-shadow: 0px 0px 4px 0px #85858544;
+
+& .MuiOutlinedInput-input {
+  color: var(--font-color);
+}
+
+& .MuiSelect-icon{
+  color: var(--font-color);
+}
+
+& .MuiOutlinedInput-notchedOutline{
+  border:none
+}
 ;`
 
-function DropMenu() {
+function DropMenu({ setSelected }) {
+
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setSelected(e.target.value);
+  };
+
+
   return (
     <div>
 
-      <SelectStyled value="" displayEmpty >
+      <SelectStyled value="" displayEmpty onChange={handleChange}>
         <MenuItem value="">Filter by</MenuItem>
-        <MenuItem value={10}>No Filter</MenuItem>
-        <MenuItem value={20}>Favourites</MenuItem>
-        <MenuItem value={30}>Africa</MenuItem>
-        <MenuItem value={40}>America</MenuItem>
-        <MenuItem value={50}>Asia</MenuItem>
-        <MenuItem value={60}>Europe</MenuItem>
-        <MenuItem value={70}>Oceania</MenuItem>
+        <MenuItem value="">No Filter</MenuItem>
+        <MenuItem value="Favourites">Favourites</MenuItem>
+        <MenuItem value="Africa">Africa</MenuItem>
+        <MenuItem value="America">America</MenuItem>
+        <MenuItem value="Asia">Asia</MenuItem>
+        <MenuItem value="Europe">Europe</MenuItem>
+        <MenuItem value="Oceania">Oceania</MenuItem>
       </SelectStyled>
 
 

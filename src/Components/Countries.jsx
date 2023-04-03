@@ -1,7 +1,6 @@
 import { Grid, Container } from "@mui/material";
 import Favourite from "./Favourite";
 import styled from "styled-components";
-import ContainerStyles from "./ContainerStyles";
 import Cards from "./Cards";
 
 const Content = styled.div`
@@ -11,10 +10,10 @@ margin-top:40px
 `;
 
 
-function Countries() {
+function Countries({ countries }) {
     return (
         <div>
-            <ContainerStyles maxWidth={false}>
+            <Container maxWidth="xl">
                 <Content>
                     <Grid container >
                         <Grid item xs={6} lg>
@@ -22,11 +21,11 @@ function Countries() {
                         </Grid>
 
                         <Grid item xs={12} lg={9}>
-                            <Cards />
+                            <Cards countries={countries} />
                         </Grid>
                     </Grid>
                 </Content>
-            </ContainerStyles>
+            </Container>
         </div>
     )
 }

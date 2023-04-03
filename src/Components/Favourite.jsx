@@ -10,10 +10,11 @@ import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 const Title = styled.h2`
 font-size:18px;
 font-family: 'Nunito Sans', sans-serif;
+color:var(--font-color);
 `;
 
 const Content = styled.div`
-background-color:white;
+background-color:var(--bg-color);
 padding:10px;
 box-shadow: 0px 0px 4px 0px #85858544;
 margin-right:40px
@@ -35,6 +36,7 @@ const CountryName = styled.h3`
 font-size:13px;
 font-family: 'Nunito Sans', sans-serif;
 margin-left:5px;
+color:var(--font-color);
 `;
 
 
