@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ReactTask/static/css/main.9959b60b.css",
-    "main.js": "/ReactTask/static/js/main.7463b3ff.js",
+    "main.css": "/ReactTask/static/css/main.9ed3b088.css",
+    "main.js": "/ReactTask/static/js/main.a7f6dca2.js",
     "static/js/787.419af693.chunk.js": "/ReactTask/static/js/787.419af693.chunk.js",
     "index.html": "/ReactTask/index.html",
-    "main.9959b60b.css.map": "/ReactTask/static/css/main.9959b60b.css.map",
-    "main.7463b3ff.js.map": "/ReactTask/static/js/main.7463b3ff.js.map",
+    "main.9ed3b088.css.map": "/ReactTask/static/css/main.9ed3b088.css.map",
+    "main.a7f6dca2.js.map": "/ReactTask/static/js/main.a7f6dca2.js.map",
     "787.419af693.chunk.js.map": "/ReactTask/static/js/787.419af693.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9959b60b.css",
-    "static/js/main.7463b3ff.js"
+    "static/css/main.9ed3b088.css",
+    "static/js/main.a7f6dca2.js"
   ]
 }
