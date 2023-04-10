@@ -39,7 +39,7 @@ background-color:var(--bg-color);
 `;
 
 
-function Cards({ countries }) {
+function Cards({ countries, favourites, setFavourites, addFavouriteCountry }) {
     return (
         <div >
             {/* <Grid container spacing={8} >
@@ -213,7 +213,7 @@ function Cards({ countries }) {
                                 capital: country.capital,
                                 code: country.cca2
                             }
-                            return <CountryCard key={country.cca2} country={c} />
+                            return <CountryCard key={country.cca2} addFavouriteCountry={addFavouriteCountry} countries={countries} country={c} favourites={favourites} setFavourites={setFavourites} />
                         }
 
                         )

@@ -16,7 +16,7 @@ const SearchInput = styled.input`
   :placeholder {
     color:var(--font-color);
   }
-  
+  color:var(--font-color);
   
 `;
 
@@ -38,7 +38,7 @@ border-radius:5px;
 
 `;
 
-function Search({ setSearch }) {
+function Search({ search, setSearch }) {
 
   const handleChange = (e) => {
     setSearch(e.target.value)
@@ -48,7 +48,7 @@ function Search({ setSearch }) {
 
     <Content>
       <SearchIconStyles />
-      <SearchInput id="outlined-search" placeholder="Search for a country..." type="search" onChange={handleChange} />
+      <SearchInput id="outlined-search" placeholder="Search for a country..." type="search" value={search} onChange={handleChange} />
     </Content>
 
   )

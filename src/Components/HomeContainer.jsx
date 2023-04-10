@@ -10,64 +10,84 @@ import Countries from "./Countries";
 import Header from "./Header";
 
 
+const Content = styled.div`
 
+background-color:var(--bg-body-color);//#fafafa
+padding-bottom: 50px;
+
+`;
 
 function HomeContainer() {
 
 
     const [countries, setCountries] = useState([]);
     const [searchValue, setSearchValue] = useState("");
-    const [selected, setSelected] = useState("");
+    const [filterValue, setFilterValue] = useState("");
+    const [filteredCountries, setFilteredCountries] = useState([]);
+    const [favourites, setFavourites] = useState(JSON.parse(localStorage.getItem("Favourites")) || []);
 
     console.log(searchValue);
 
-    console.log(selected);
 
-    const filterCountries = () => {
-        setCountries(countries.filter((country) => country.region === selected));
+    console.log(filterValue);
+
+    const filterCountries = (countries, filter) => {
+        return countries.filter((country) => !filter || country.region === filter);
     }
 
 
-    const fetchCountries = () => {
+    const fetchCountries = async (search) => {
 
-        const url = searchValue ? `https://restcountries.com/v3.1/name/${searchValue}` : 'https://restcountries.com/v3.1/all';
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                setCountries(data);
-                console.log(data)
+        const url = search ? `https://restcountries.com/v3.1/name/${search}` : 'https://restcountries.com/v3.1/all';
+
+
+        return fetch(url)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(res.statusText);
+                }
+                return res.json()
+            }).catch(error => {
+                console.log(error);
+                return [];
             })
+
     }
 
     useEffect(() => {
 
-        fetchCountries();
+        // fetchCountries(searchValue).then(data => setCountries(data));
+        fetchCountries(searchValue).then(data => setCountries(data));
 
 
     }, [searchValue]);
 
     useEffect(() => {
 
-        filterCountries();
+        setFilteredCountries(filterCountries(countries, filterValue));
 
-    }, [selected]);
+
+    }, [countries, filterValue]);
 
 
     return (
 
         <div>
-            <Header />
+            <Content>
+                <Header />
 
-            <SearchAndFilter search={setSearchValue} select={setSelected} />
+                <SearchAndFilter search={searchValue} setSearch={setSearchValue} filter={filterValue} setFilter={setFilterValue} />
 
-            <Countries countries={countries} />
-            {/* <Cards countries={countries}/> */}
+                <Countries countries={filteredCountries} favourites={favourites} setFavourites={setFavourites} />
+               
+               
+                {/* <Cards countries={countries}/> */}
 
-            {countries.length > 0 && (
+                {/* {countries.length > 0 && (
 
                 <Grid container spacing={8} >
                     {
-                        countries.map(country => {
+                        filteredCountries.map(country => {
                             let c = {
                                 imageUrl: country.flags.svg,
                                 imageAlt: country.flags.alt,
@@ -84,7 +104,8 @@ function HomeContainer() {
                     }
                 </Grid>
 
-            )}
+            )} */}
+            </Content>
 
         </div>
 

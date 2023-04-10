@@ -23,19 +23,19 @@ box-shadow: 0px 0px 4px 0px #85858544;
 }
 ;`
 
-function DropMenu({ setSelected }) {
+function DropMenu({ filter, setFilter }) {
 
 
   const handleChange = (e) => {
     console.log(e.target.value);
-    setSelected(e.target.value);
+    setFilter(e.target.value);
   };
 
 
   return (
     <div>
 
-      <SelectStyled value="" displayEmpty onChange={handleChange}>
+      <SelectStyled value={filter} displayEmpty label="Age" onChange={handleChange}>
         <MenuItem value="">Filter by</MenuItem>
         <MenuItem value="">No Filter</MenuItem>
         <MenuItem value="Favourites">Favourites</MenuItem>

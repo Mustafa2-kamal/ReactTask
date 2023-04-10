@@ -1,5 +1,5 @@
 
-import { Card, CardMedia, Grid, Container } from "@mui/material";
+import { Card, CardMedia, Grid, Container, Box } from "@mui/material";
 import styled from "styled-components";
 
 
@@ -17,7 +17,6 @@ text-align:left;
 font-weight: 600;
 display:inline-block;
 margin-bottom:5px;
-color:#000;
 margin-right:5px;
 
 `;
@@ -31,17 +30,18 @@ font-size:15px;
 const ButtonStyles = styled.button`
 font-size:14px;
 padding:7px 20px;
-background-color:#fff;
 box-shadow: 0px 0px 4px 0px #85858544;
 border:none;
 font-family: 'Nunito Sans', sans-serif;
 margin-left:5px;
 border-radius:2px;
-
+background-color:var(--bg-color);
+color:var(--font-color);
+margin-top:5px;
 `;
 
 const RightContent = styled.div`
-padding-left: 39px;
+
 `;
 
 
@@ -53,6 +53,8 @@ margin-top:40px;
 const ContentStyles = styled.div`
 padding:80px 0px;
 margin-top:50px;
+color:var(--font-color);
+
 `;
 
 const Image = styled(Card)`
@@ -63,8 +65,10 @@ margin-top:50px;
 function DetailContent(props) {
 
     const { imageUrl, imageAlt, title, nativeName, population, region, subRegion, capital, toplevelDomain,
-        currenies, languages } = props.count;
+        currenies, languages, borders } = props.count;
 
+
+    console.log(borders);
 
 
     return (
@@ -77,7 +81,7 @@ function DetailContent(props) {
                         <Image>
                             <CardMedia
                                 component="img"
-                                height="400"
+                                height={400}
                                 image={imageUrl}
                                 alt={imageAlt}
                             />
@@ -119,8 +123,8 @@ function DetailContent(props) {
                                         </div>
                                     </Grid>
                                     <Grid item xs={1}></Grid>
-                                    <Grid item xs>
-                                        <div>
+                                    <Grid item xs={12} md sx={{ marginTop: { xs: "20px", md: 0 } }} >
+                                        <div >
                                             <div>
                                                 <Name>Top level Domain:</Name>
                                                 <Value>{toplevelDomain}</Value>
@@ -142,9 +146,16 @@ function DetailContent(props) {
 
                                 <BorderContent>
                                     <Name>Border Countries:</Name>
-                                    <ButtonStyles>France</ButtonStyles>
+                                    <Box sx={{ display: { xs: "block", md: "inline-block" }, marginTop: { xs: '5px' } }}>
+                                        {borders.map((border) => {
+
+                                            return <ButtonStyles>{border[0].name.common}</ButtonStyles>
+                                        })}
+                                    </Box>
+
+                                    {/* <ButtonStyles>France</ButtonStyles>
                                     <ButtonStyles>Germany</ButtonStyles>
-                                    <ButtonStyles>Netherlands</ButtonStyles>
+                                    <ButtonStyles>Netherlands</ButtonStyles> */}
                                 </BorderContent>
 
                             </div>

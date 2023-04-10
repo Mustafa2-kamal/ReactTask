@@ -1,46 +1,38 @@
 
 import './App.css';
 import * as React from 'react';
-import { useState, createContext,useEffect } from 'react';
+import { useState, createContext, useEffect } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
-import Home from './Components/Home';
-import Detail from './Components/Detail';
+import HomeContainer from './Components/HomeContainer';
+import DetailContainer from './Components/DetailContainer';
+import { ThemeContext } from './Contexts/ThemeContext';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 
-export const ThemeContext = createContext();
 
 function App() {
 
-  const [darkTheme, setDarkTheme] = useState(localStorage.getItem('darkTheme'));
+  const [theme, setTheme] = useState(localStorage.getItem('Theme') ? localStorage.getItem('Theme') : 'light');
 
-  // useEffect(() => {
-  //   const theme = localStorage.getItem('darkTheme');
-  //   if (theme) {
-  //    setDarkTheme(theme);
-  //   }
-  //   return () => {
-      
-  //   };
-  // }, darkTheme);
-
-  const theme = { darkTheme, setDarkTheme };
-  console.log(darkTheme)
 
 
   return (
-    <ThemeContext.Provider value={theme} >
+    <ThemeContext.Provider value={{ theme, setTheme }} >
 
-      <div className="App">
+      <DndProvider backend={HTML5Backend}>
+        <div className={`App ${theme}`}>
 
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/home' element={<Home />}></Route>
-          <Route path='/detail' element={<Detail />}></Route>
-          <Route path='*' element={<h1>Not Found</h1>}></Route>
-        </Routes>
+          <Routes>
+            <Route path='/' element={<HomeContainer />}></Route>
+            <Route path='/home' element={<HomeContainer />}></Route>
+            <Route path='/detail' element={<DetailContainer />}></Route>
+            <Route path='*' element={<h1>Not Found</h1>}></Route>
+          </Routes>
 
-      </div>
+        </div>
+      </DndProvider>
     </ThemeContext.Provider>
   );
 }

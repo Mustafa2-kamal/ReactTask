@@ -2,7 +2,7 @@
 import { Container } from '@mui/material';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import styled from 'styled-components';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../Contexts/ThemeContext';
 import { useContext, useState } from "react";
 
 
@@ -54,11 +54,12 @@ padding:20px 0px;
 
 function Header() {
 
-    const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+    const { theme, setTheme } = useContext(ThemeContext);
 
     const handleClick = () => {
-        setDarkTheme(!darkTheme);
-        localStorage.setItem("DarkTheme", !darkTheme);
+        const newThemeValue = theme === 'light' ? 'dark' : 'light';
+        setTheme(newThemeValue);
+        localStorage.setItem("Theme", newThemeValue);
     };
 
     return (

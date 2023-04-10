@@ -1,6 +1,10 @@
-import { Card, CardMedia, CardContent, Grid } from "@mui/material";
+import { Card, CardMedia, CardContent, CardActions, Grid, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Draggable from 'react-draggable';
+import { useDrag } from "react-dnd";
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import { Block } from "@mui/icons-material";
 
 
 
@@ -38,18 +42,44 @@ const CardContentStyles = styled(CardContent)`
 background-color:var(--bg-color);
 `;
 
+const CardActionsStyles = styled(CardActions)`
+
+display: flex;
+justify-content: flex-end;
+
+`;
+
+
+
 
 function CountryCard(props) {
 
     const { imageUrl, imageAlt, title, population, region, capital, code } = props.country;
+    // const{favourites}=props.favourites ;
+    // const{setFavourites}=props.setFavourites;
+    // const{countries}=props.countries;
+    // const{addFavouriteCountry}=props.addFavouriteCountry;
 
+    const [{ isDragging }, drag] = useDrag(() => ({
+        type: "card",
+        item: { code },
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging(),
+        })
+    }));
+
+
+
+    // const handleClick=(countryCode)=>{
+    //     setFavourites(addFavouriteCountry(countryCode));
+    // }
 
 
     return (
 
-        <Grid item xs={4}>
-            <LinkStyles to="/detail" state={code}>
-                <Card>
+        <Grid item xs={11} sm={6} md={4}>
+            <LinkStyles to={`/detail?countryCode=${code}`}>
+                <Card sx={{ opacity: isDragging ? 0.5 : 1 }} ref={drag}>
                     <CardMedia
                         sx={{ height: 150 }}
                         component="img"
@@ -71,7 +101,13 @@ function CountryCard(props) {
                             <Name>Capital:</Name>
                             <Value>{capital}</Value>
                         </div>
+
                     </CardContentStyles>
+                    <CardActionsStyles >
+                        <IconButton sx={{ display: { xs: "Block", lg: "none" } }} >
+                            <StarRoundedIcon />
+                        </IconButton>
+                    </CardActionsStyles>
                 </Card>
             </LinkStyles>
         </Grid>

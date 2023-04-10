@@ -11,19 +11,19 @@ margin-top:40px;
 
 `;
 
-function SearchAndFilter({ search, select }) {
+function SearchAndFilter({ search, filter, setFilter, setSearch }) {
     return (
         <Container maxWidth="xl">
             <Content>
                 <Grid container spacing={{ xs: 3 }}>
                     <Grid item xs={12} md={5} >
-                        <Search setSearch={search} />
+                        <Search search={search} setSearch={setSearch} />
                     </Grid>
 
                     <Grid item xs={12} md={4} lg={5} ></Grid>
 
                     <Grid item xs={7} sm={5} md >
-                        <DropMenu setSelected={select} />
+                        <DropMenu filter={filter} setFilter={setFilter} />
                     </Grid>
                 </Grid>
             </Content>
